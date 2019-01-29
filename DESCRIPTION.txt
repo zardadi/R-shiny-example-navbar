@@ -1,6 +1,6 @@
 Title: Navbar Example
 Author: Mohsen Zardadi
-AuthorUrl: http://www.rstudio.com/
+AuthorGitHub: https://github.com/zardadi
 License: MIT
 DisplayMode: Showcase
 Tags: navbar layout
