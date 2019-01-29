@@ -3,7 +3,7 @@ function(input, output, session) {
   library(lattice)
  
   
-  output$plot5 <- renderPlot({
+  output$plot1 <- renderPlot({
       load('airdf.RData')
       cutoff <- as.numeric(input$numAirport)
       # Finding all the Airports in the data set and sort them by most arrivals
@@ -22,7 +22,7 @@ function(input, output, session) {
       
   }) 
 
-  output$plot1 <- renderPlot({
+  output$plot2 <- renderPlot({
     cutoff <- as.numeric(input$MinDelay)
     ord <- ord[ord$ArrDelay > cutoff,]
     ord$Month <- as.factor(ord$Month)
@@ -33,7 +33,7 @@ function(input, output, session) {
            main = "Arrival Flight Delays at ORD Airport")
     
   })
-  output$plot2 <- renderPlot({
+  output$plot3 <- renderPlot({
      season <- list('spring' = 3:5 , 'summer' = 6:8, 'fall'= 9:11 , 'winter' = c(1,2,12))   
     
       ord$season <- ifelse(ord$Month %in% season$fall, "fall", 
@@ -47,11 +47,10 @@ function(input, output, session) {
       bwplot(ArrDelay~season, data = ord, ylim = c(cutoff-5,(cutoff+230)), do.out =FALSE, col='black', pch=16,
            xlab = "seasons", ylab = "arrival delay per minute",
            main = "Arrival Flight Delays at ORD Airport per Season")
-    # Winter has the most delays in Chicago airport
-    
+   
   })
   
-  output$plot3 <- renderPlot({
+  output$plot4 <- renderPlot({
     
     # sort ORD data by airlines 
     cutoff3 <- as.numeric(input$MinDelay3)
@@ -69,11 +68,9 @@ function(input, output, session) {
     bwplot(ArrDelay~UniqueCarrier, data = top.airlines, ylim=c(cutoff3-5,(cutoff3+250)), do.out=FALSE,
            xlab = "airline", ylab = "arrival delay per minute",
            main ="Arrival Flight Delays at ORD airport")
-    # We can conclude that two airlines YV and OO have the worst delay result
-    
     
   })
-  output$plot4 <- renderPlot({
+  output$plot5 <- renderPlot({
     # sort ORD data by airlines 
     cutoff3 <- as.numeric(input$MinDelay3)
     airlines.ord <- ord %>% group_by(UniqueCarrier) %>% count(UniqueCarrier)
@@ -94,7 +91,7 @@ function(input, output, session) {
                   names.arg = airline$UniqueCarrier,
                   width = c(1,1,1,1),
                   xlab = "airline",
-                  ylab = "number of flights",
+                  #ylab = "number of flights",
                   ylim = c(0,airline$n[1]+0.1*airline$n[1]))
     text(x = xx, y = airline$n, label = round(airline$n), pos = 3, cex = 0.8, col = "black")
     

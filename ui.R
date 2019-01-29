@@ -1,4 +1,6 @@
-library(markdown)
+library(leaflet)
+library(dplyr)
+
 
 navbarPage("Navbar!",
            tabPanel("Airports",
@@ -7,7 +9,7 @@ navbarPage("Navbar!",
                         sliderInput("numAirport","Number of busiest airports cutoff:", "10", min = 1, max = 50 )
                       ),
                       mainPanel(
-                        plotOutput("plot5")
+                        plotOutput("plot1")
                        
                       )
                     )
@@ -18,8 +20,8 @@ navbarPage("Navbar!",
                         sliderInput("MinDelay","Minimum delay cutoff:", "5", min = -5, max = 20 )
                       ),
                       mainPanel(
-                        plotOutput("plot1"),
-                        plotOutput("plot2")
+                        plotOutput("plot2"),
+                        plotOutput("plot3")
                       )
                     )
            ),
@@ -30,8 +32,8 @@ navbarPage("Navbar!",
                         sliderInput("num","Number of Airlines:", "15", min = 1, max = 15 )
                       ),
                       mainPanel(
-                        plotOutput("plot3"),
-                        plotOutput("plot4")
+                        plotOutput("plot4"),
+                        plotOutput("plot5")
                       )
                     )
            )
