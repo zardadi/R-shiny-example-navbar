@@ -1,0 +1,7 @@
+Title: Navbar Example
+Author: Mohsen Zardadi
+AuthorUrl: http://www.rstudio.com/
+License: MIT
+DisplayMode: Showcase
+Tags: navbar layout
+Type: Shiny
