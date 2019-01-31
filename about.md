@@ -4,8 +4,11 @@
  In order to read the data from air.csv into R, you will need to type: 
 
 air <- read.csv("air.csv")
+
 summary(air)
+
 head(air)
 
 To run this shiny app, you will need to use 'ord.RData' and 'airdf.RData' data sets.
-shrinking_air_dataset.R creates these two data sets 'ord.RData' and 'airdf.RData' from the original air.csv file. 
+
+*shrinking_air_dataset.R* creates these two data sets 'ord.RData' and 'airdf.RData' from the original air.csv file. 
